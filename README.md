@@ -26,13 +26,13 @@ Service object for implementation.
 3. serviceutil.py -- the service utility method to return the default service and the backup service.
 
 4. geo services
-1) geoservice.py --- The service base class
-2) googlegeo.py (extends geoservice) --- geoservice to handle google specific request/response ...etc
-3) heregeo.py (extends geoservice) --- geoservice to handle here specific request /response ... etc
+a. geoservice.py --- The service base class
+b. googlegeo.py (extends geoservice) --- geoservice to handle google specific request/response ...etc
+c. heregeo.py (extends geoservice) --- geoservice to handle here specific request /response ... etc
    
 5: configuration
-1) config.json -- the json file to put definition of all backend service
-2) the geoconfig.py -- runtime object for config.json
+a. config.json -- the json file to put definition of all backend service
+b. geoconfig.py -- runtime object for config.json
 
 ### Test code
 Test code are under 'test' folder
