@@ -1,8 +1,11 @@
 # geoservice
 ## Design ideas
 1   View controller uses Flask to handle web request/response, use service for REST service implementation
-2   All geocode services are put in a definition file, config.json, default service and backup service are automatically handled by using the configuration definition
-3:  Creating corresponding geo service ('google' and 'here') for any special request/response ... etc handling, in case there are different support and format from differewnt vendor (Note: after implementation, there is no different for current two simple APIs. this design is just for scalability)  
+
+2   All geocode services are put in a definition file, config.json, default service and fallback service are automatically handled by using the configuration definition
+
+3:  Creating corresponding geo service ('google' and 'here') for any special request/response ... etc handling, in case there are different supports and formats from differewnt vendor (Note: after implementation, there is no different for current two simple APIs. this design is just for scalability)  
+
 4: TDD
 
 ## 1 Details of the implementation
