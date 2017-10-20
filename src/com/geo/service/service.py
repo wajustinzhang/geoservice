@@ -1,5 +1,6 @@
 import requests
 from com.geo.service.serviceUtil import ServiceUtil
+from com.geo.geoexception import GeoException
 
 class Service:
     """This is the service object, providing service api to be used in view controller. """
@@ -48,6 +49,6 @@ class Service:
             try:
                 response.raise_for_status()
             except requests.exceptions.HTTPError as he:
-                print(str(he))
+                raise GeoException("Service request fails")
 
         return geoService.formatResult(response.json(), isreverse)

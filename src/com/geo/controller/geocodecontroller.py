@@ -1,7 +1,7 @@
 from flask import Flask, request, Response
 from flask import jsonify
 
-from com.geo.controller.geoexception import GeoException
+from com.geo.geoexception import GeoException
 from com.geo.service.service import Service
 
 app = Flask(__name__)
@@ -21,6 +21,9 @@ def getAddress():
         latlng = request.args['latlng'].split(",")
         coordinate = {'latitude':latlng[0], 'longitude':latlng[1]}
         result = service.getAddress(coordinate)
+        if result is None:
+            raise GeoException("there is no result")
+
         resp = Response(result, status=200, mimetype='application/json')
         return resp
     else:
@@ -31,6 +34,9 @@ def getCoordinate():
     if 'address' in request.args:
         address = request.args['address']
         result = service.getCoordinate(address)
+        if result is None:
+            raise GeoException("there is no result")
+
         response = jsonify(result)
         response.status_code = 200
         return response

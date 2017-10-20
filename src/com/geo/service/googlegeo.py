@@ -26,4 +26,7 @@ class GoogleGeoCoder(GeoService):
                 records.append(record['formatted_address'])
             else:
                 records.append((record['geometry']['location']['lat'], record['geometry']['location']['lng']))
-        return records[0]
+        if len(records) > 0:
+            return records[0]
+
+        return None
