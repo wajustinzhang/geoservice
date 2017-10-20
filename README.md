@@ -12,12 +12,12 @@
 ### 1.1 Source code
 Source code under 'src' folder
 
-1. geocodecontroller.py -- this is the REST web service class. it provide two rest service as in following examples:
+1. geocodecontroller.py -- this is the REST web service controller. it provide two rest service requested as in following examples:
 
 http://127.0.0.1:5000/coordinate?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA
 http://127.0.0.1:5000/address?latlng=37.4216548,%20-122.0856374
 
-Inside geocodecontroller.py, two service are used:
+Inside geocodecontroller.py, two services are used:
 Flask to handle web request/response
 Service object for implementation.
 
@@ -39,13 +39,13 @@ Test code are under 'test' folder
 
 ## 2 Run the code
 ### 2.1 Development
-  Checkout the code, open in pyCharm, run geocodecontroller.py
-  Run through unittests
+1) Checkout the code, open in pyCharm, run geocodecontroller.py
+2) Run through unittests
 
 ### 2.2 Deployment
   TODO
 
 ## 3. Tasks to do
-1: Introduce auth support
-2: More document and tests
+1): Introduce auth support
+2): More document and tests
 
