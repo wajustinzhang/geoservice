@@ -1,0 +1,27 @@
+{
+   "name": "postmates geoservice",
+   "description": "configuration file for registered geocoding service used in this example",
+   "services": [
+     {
+       "name": "google",
+       "default": true,
+       "endpoint":{
+         "name":"geocoder",
+         "url": "https://maps.googleapis.com/maps/api/geocode",
+         "format": "json",
+         "api_key": "AIzaSyA7TtigmWsE5fSrthxiSJ559M0xRYB9DiI"
+       }
+     },
+     {
+       "name": "here",
+       "default": false,
+       "endpoint": {
+         "name": "geocoder",
+         "url": "https://geocoder.cit.api.here.com/6.2/geocode.json",
+         "app_id": "zhikWkdhEys7kCYBnMA7",
+         "app_code": "zwRrGffshaoqsS2BjqJ8iw"
+       }
+     }
+   ]
+}
+
