@@ -30,11 +30,14 @@ class Service:
         :param coordinate: the coordinate information, in format of {'latitude':lvalue, 'longitude':lgvalue}
         :return: the address list to the coordinate.
         """
-        params = "latlng={lat},{lon}".format(lat=coordinate['latitude'], lon=coordinate['longitude'])
-        service = ServiceUtil().getDefaultService()
-        service_ep = service.getServiceUrl()
-        url = '{base}&{params}'.format(base=service_ep, params=params)
-        return self.__servicecall(service, url, params, True)
+        try:
+            params = "latlng={lat},{lon}".format(lat=coordinate['latitude'], lon=coordinate['longitude'])
+            service = ServiceUtil().getDefaultService()
+            service_ep = service.getServiceUrl()
+            url = '{base}&{params}'.format(base=service_ep, params=params)
+            return self.__servicecall(service, url, params, True)
+        except Exception:
+            raise GeoException("Service request fails")
 
     def __servicecall(self, geoService, url, params, isreverse):
         response = requests.get(url)
@@ -43,10 +46,10 @@ class Service:
         except requests.exceptions.HTTPError as e:
             # if debug mode
             # print(str(e))
-            geoService = ServiceUtil().getFallbackService().getServiceUrl()
-            url = '{base}&{params}'.format(base=geoService.getServiceUrl(), params=params)
-            response = requests.get(url)
             try:
+                geoService = ServiceUtil().getFallbackService().getServiceUrl()
+                url = '{base}&{params}'.format(base=geoService().getServiceUrl(), params=params)
+                response = requests.get(url)
                 response.raise_for_status()
             except requests.exceptions.HTTPError as he:
                 raise GeoException("Service request fails")
