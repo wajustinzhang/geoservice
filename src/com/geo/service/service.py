@@ -42,7 +42,7 @@ class Service:
         except requests.exceptions.HTTPError as e:
             # if debug mode
             # print(str(e))
-            geoService = ServiceUtil().getFallbackServiceUrl()
+            geoService = ServiceUtil().getFallbackService().getServiceUrl()
             url = '{base}&{params}'.format(base=geoService.getServiceUrl(), params=params)
             response = requests.get(url)
             try:
