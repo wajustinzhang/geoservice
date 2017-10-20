@@ -37,3 +37,7 @@ Test code are under 'test' folder
 ### 2.2 Deployment
   TODO
 
+## 3. Tasks to do
+1: Introduce auth support
+2: More document and tests
+
