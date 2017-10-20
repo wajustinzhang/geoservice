@@ -4,7 +4,9 @@ from collections import namedtuple
 
 
 class GeoConfig:
-    """The config file for reading & processing config information defined inside config.json"""
+    """
+    The config file for reading & processing config information defined inside config.json
+    """
     SERVICE_PROVIDER_GOOGLE = 'google'
     SERVICE_PROVIDER_HERE = 'here'
     cfg = {}
@@ -17,4 +19,7 @@ class GeoConfig:
             configfile.close()
 
     def getConfig(self):
+        """
+        :return: the config object.
+        """
         return self.__class__.cfg

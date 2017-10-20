@@ -2,8 +2,7 @@ import requests
 from com.geo.service.serviceUtil import ServiceUtil
 
 class Service:
-    """This is the GeoService base template, serving as the super class for each individual service like the
-    googlegeo service and heregeo service as implemented in this sample. """
+    """This is the service object, providing service api to be used in view controller. """
 
     def __init__(self):
         """Here to initialize state related to service calls"""
@@ -21,7 +20,7 @@ class Service:
         geoService = ServiceUtil().getDefaultService()
         service_ep = geoService.getServiceUrl()
         url = '{base}&{params}'.format(base=service_ep, params=params)
-        return self.__servicecall__(geoService, url, params, False)
+        return self.__servicecall(geoService, url, params, False)
 
     def getAddress(self, coordinate):
         """
@@ -34,9 +33,9 @@ class Service:
         service = ServiceUtil().getDefaultService()
         service_ep = service.getServiceUrl()
         url = '{base}&{params}'.format(base=service_ep, params=params)
-        return self.__servicecall__(service, url, params, True)
+        return self.__servicecall(service, url, params, True)
 
-    def __servicecall__(self, geoService, url, params, isreverse):
+    def __servicecall(self, geoService, url, params, isreverse):
         response = requests.get(url)
         try:
             response.raise_for_status()

@@ -3,7 +3,7 @@ from com.geo.service.heregeo import HereGeoCoder
 from com.geo.geoconfig import GeoConfig
 
 class ServiceUtil():
-    """The Service Factory take """
+    """The Service Utility create GeoService Object on demand"""
     config = GeoConfig()
 
     def getDefaultService(self):
